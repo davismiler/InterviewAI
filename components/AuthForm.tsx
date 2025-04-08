@@ -14,12 +14,15 @@ import Link from "next/link"
 import { toast } from "sonner"
 import FormField from "./FormField"
 import { useRouter } from "next/navigation"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebass/client";
+import { signIn, signUp } from "@/lib/actions/auth.action";
 
 
 const AuthFormSchema = (type: FormType) => {return z.object ({
   name: type === 'sign-up' ? z.string().min(3) : z.string().optional(),
   email: z.string().email(),
-  password: z.string().min(3),
+  password: z.string().min(6),
 })}
 
 
@@ -37,24 +40,49 @@ const AuthForm = ({type}: {type: FormType}) => {
   })
  
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
+    
     try {
       if(type === 'sign-up') {
+        const { name, email, password } = values;
+        const userCredentials = await createUserWithEmailAndPassword(auth,email,password)
+       const result = await signUp({
+        uid: userCredentials.user.uid,
+        name: name!,
+        email,
+        password,
+       })
+       if (!result?.success){
+        toast.error(result?.message);
+        return;
+       }
+
       toast.success("Account created successfully.")
       router.push('/dashboard')
     } else {
+      const {email,password} = values;
+      const userCredential = await signInWithEmailAndPassword(auth,email,password);
+      const idToken = await userCredential.user.getIdToken();
+      if(!idToken) {
+        toast.error('Sign in failed')
+        return;
+      }
+      await signIn({ email, idToken})
       toast.success("Sign in successfully.");
       router.push('/dashboard')
-    } }
+    }  }
     catch(error){
         console.log(error);
         toast.error(`there is an error: ${error}`)
     }
     }
+
+    
     // ✅ This will be type-safe and validated.
-  
+    
   const isSignIn = type === 'sign-in';
+  
   return (
     <div className="card-border min-w-[20%]  ">
       <div className="flex flex-col gap-4 card py-8 px-10">
@@ -80,7 +108,36 @@ const AuthForm = ({type}: {type: FormType}) => {
        label="Password"
        placeholder="Enter your password"
        type="password" />
-        <Button className="btn" type="submit">{isSignIn ? 'Sign in' : 'Creat an Account'}</Button>
+       
+        <Button className="btn " type="submit">{isSignIn ? 'Sign In' : 'Sign Up'}</Button>
+      
+        <Button 
+  className="btn button flex items-center gap-2" 
+  type="button" 
+  onClick={async () => {
+    try {
+      const { signInWithGoogle } = await import("@/firebass/client");
+      const result = await signInWithGoogle();
+      if (!result) {
+        toast.error("Google sign-in failed.");
+        return;
+      }
+      const idToken = await result.user.getIdToken();
+      await signIn({ email: result.user.email!, idToken });
+      toast.success("Signed in with Google successfully!");
+      router.push("/dashboard");
+    } catch (err) {
+      console.error(err);
+      toast.error("Google sign-in error.");
+    }
+  }}
+>
+  <Image src="/google-icon.png" width={26} height={28} alt="Google icon" />
+  {isSignIn ? "Continue With Google" : "Continue With Google"}
+</Button>
+
+
+        
       </form>
     </Form>
     <p className="text-center">

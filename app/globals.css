@@ -321,7 +321,17 @@
 @utility animate-fadeIn {
   animation: fadeIn 0.3s ease-in-out;
 }
-
+/* Hide scrollbar but allow scrolling */
+::-webkit-scrollbar {
+	display: none;
+  }
+  
+  /* Ensure scrolling still works */
+  body {
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Internet Explorer/Edge */
+  }
+  
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -330,5 +340,27 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (min-width: 768px) and (max-width: 884px) {
+  .interview-section {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    place-items: center;
+    justify-content: center; 
+    
+  }
+  .interview-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1027px) and (max-width: 1245px) {
+  .interview-section {
+    grid-template-columns: repeat(2, minmax(0, 2fr));
+  }
+   .interview-wrapper {
+    display: flex;
+    justify-content: center;
   }
 }

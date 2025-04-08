@@ -2,3 +2,6 @@ npx create-nextapp@ /.
 npx shadcn@latest init
 npm run dev
 npx shadcn@latest add button input sonner
+npm install dayjs
+npm install firebase
+npm install firebase-admin --save

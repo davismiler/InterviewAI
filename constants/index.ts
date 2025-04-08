@@ -1,5 +1,5 @@
-{/**import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
-import { z } from "zod";
+//import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
+//import { z } from "zod";
 
 export const mappings = {
   "react.js": "react",
@@ -97,6 +97,7 @@ export const mappings = {
   "aws amplify": "amplify",
 };
 
+{/**
 export const interviewer: CreateAssistantDTO = {
   name: "Interviewer",
   firstMessage:
@@ -188,20 +189,22 @@ export const feedbackSchema = z.object({
   areasForImprovement: z.array(z.string()),
   finalAssessment: z.string(),
 });
-
+**/}
 export const interviewCovers = [
+  "/tcs.png",
+  "/accenture.png",
+  "/infosys.jpg",
   "/adobe.png",
   "/amazon.png",
   "/facebook.png",
-  "/hostinger.png",
+  "/google.png",
   "/pinterest.png",
   "/quora.png",
-  "/reddit.png",
-  "/skype.png",
-  "/spotify.png",
+  "/wipro.png",
+  "/flipkart.png",
   "/telegram.png",
-  "/tiktok.png",
-  "/yahoo.png",
+  "/microsoft.png",
+  "/hcl.jpg",
 ];
 
 export const dummyInterviews: Interview[] = [
@@ -227,5 +230,15 @@ export const dummyInterviews: Interview[] = [
     finalized: false,
     createdAt: "2024-03-14T15:30:00Z",
   },
+  {
+    id: "3",
+    userId: "user1",
+    role: "Backend Developer",
+    type: "Mixed",
+    techstack: ["Node.js", "Express", "MongoDB", "React"],
+    level: "Senior",
+    questions: ["What is Node.js?"],
+    finalized: false,
+    createdAt: "2024-03-14T15:30:00Z",
+  },
 ];
-**/}
