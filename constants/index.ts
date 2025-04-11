@@ -1,5 +1,5 @@
-//import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
-//import { z } from "zod";
+import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
+import { z } from "zod";
 
 export const mappings = {
   "react.js": "react",
@@ -97,8 +97,8 @@ export const mappings = {
   "aws amplify": "amplify",
 };
 
-{/**
-export const interviewer: CreateAssistantDTO = {
+
+  export const interviewer: CreateAssistantDTO = {
   name: "Interviewer",
   firstMessage:
     "Hello! Thank you for taking the time to speak with me today. I'm excited to learn more about you and your experience.",
@@ -145,7 +145,7 @@ If unsure, redirect the candidate to HR for more details.
 Conclude the interview properly:
 Thank the candidate for their time.
 Inform them that the company will reach out soon with feedback.
-End the conversation on a polite and positive note.
+End the conversation on a polite and positive note. Thank the user for using IntervueAi, and if they found it helpful, kindly encourage them to give it a star on GitHub.
 
 
 - Be sure to be professional and polite.
@@ -156,7 +156,7 @@ End the conversation on a polite and positive note.
   },
 };
 
-export const feedbackSchema = z.object({
+  export const feedbackSchema = z.object({
   totalScore: z.number(),
   categoryScores: z.tuple([
     z.object({
@@ -189,7 +189,8 @@ export const feedbackSchema = z.object({
   areasForImprovement: z.array(z.string()),
   finalAssessment: z.string(),
 });
-**/}
+
+
 export const interviewCovers = [
   "/tcs.png",
   "/accenture.png",

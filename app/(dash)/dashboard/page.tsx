@@ -1,11 +1,21 @@
 
 import InterviewCard from "@/components/InterviewCard"
 import { Button } from "@/components/ui/button"
-import { dummyInterviews } from "@/constants"
+import {getCurrentUser} from "@/lib/actions/auth.action"
+import {  getInterviewByUserId, getLatestInterviews } from "@/lib/actions/generate.action"
 import Image from "next/image"
 import Link from "next/link"
 
-const page = () => {
+const page = async () => {
+  const user = await getCurrentUser();
+  const [ userInterviews,latestInterviews ] = await Promise.all([
+    await getInterviewByUserId(user?.id!),
+    await getLatestInterviews({userId: user?.id! })
+  ])
+
+  const hasPastInterviews = userInterviews?.length > 0;
+  const hasUpcomingInterviews = latestInterviews?.length > 0;
+
   return (
     <>
      <section className="card-cta">
@@ -25,12 +35,13 @@ const page = () => {
      <section className="flex flex-col gap-3 sm:gap-6 mt-6 ">
       <h2>Your Interviews</h2>
       <div className="w-full px-4">
-         <div className="interview-section grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">{dummyInterviews.map((interview) => (
-          
+         <div className="interview-section grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">{
+          hasPastInterviews ? (
+         userInterviews?.map((interview) => (
           <div key={interview.id} className="interview-wrapper flex justify-center">
           <InterviewCard {...interview}  /></div>
-         ))}
-          {/*<p> You haven’t taken any Interviews yet</p>*/}
+         ))) : (<p> You haven’t taken any Interviews yet</p>) }
+          {/**/}
           </div>
          </div>
      </section>
@@ -38,11 +49,13 @@ const page = () => {
       <h2 > Take an Interview</h2>
       <div className="w-full px-4">
       <div className="interview-section grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {dummyInterviews.map((interview) => (
+      {
+          hasUpcomingInterviews ? (
+         latestInterviews?.map((interview) => (
           <div key={interview.id} className="interview-wrapper flex justify-center">
-          <InterviewCard {...interview}  /> </div>
-         ))}
-        {/*<p>There are no interviews available</p>*/}
+          <InterviewCard {...interview}  /></div>
+         ))) : (<p> There are no interviews available</p>) }
+          {/**/}
       </div>
       </div>
      </section>

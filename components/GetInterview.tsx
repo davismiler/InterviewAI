@@ -1,9 +1,8 @@
 'use client';
-
+import {  interviewer } from '@/constants';
+import { createFeedback } from '@/lib/actions/generate.action';
 import { cn } from '@/lib/utils';
 import { vapi } from '@/lib/vapi.sdk';
-
-
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
@@ -19,7 +18,7 @@ interface SavedMessage {
   role: 'user' | 'system' | 'assistant';
   content: string;
 }
-const Agent = ({userName, userId, type}: AgentProps) => {
+const GetInterview = ({userName, userId, type, interviewId, questions}: GetInterviewProps) => {
   const router = useRouter();
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE)
@@ -60,19 +59,56 @@ const Agent = ({userName, userId, type}: AgentProps) => {
     vapi.off('error',onError);
   }
     }, [])
+    const handleGenerateFeedback = async (messages: SavedMessage[] ) => {
+      console.log('Generate feedback here.');
+      const { success, feedbackId: id } = await createFeedback({
+        interviewId: interviewId!,
+        userId: userId!,
+        transcript: messages,
+       
+      });
+      if (success && id ) {
+        router.push(`/interview/${interviewId}/feedback`)
+      } else {
+        console.log('Error saving feedback')
+        router.push('/dashboard');
+      }
+    }
     useEffect(() => {
-      if(callStatus === CallStatus.FINISHED) router.push('/dashboard');
+      if(callStatus === CallStatus.FINISHED) {
+        if(type === 'generate'){
+          router.push('/')
+        } else {
+          handleGenerateFeedback(messages);
+        }
+      };
     })
     
     const handleCall = async () => {
       setCallStatus(CallStatus.CONNECTING);
-      await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!,{
-        variableValues:{
-          username: userName,
-          userid:userId,
+  
+      if (type === "generate") {
+        await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
+          variableValues: {
+            username: userName,
+            userid: userId,
+          },
+        });
+      } else {
+        let formattedQuestions = "";
+        if (questions) {
+          formattedQuestions = questions
+            .map((question) => `- ${question}`)
+            .join("\n");
         }
-      })
-    }
+  
+        await vapi.start(interviewer, {
+          variableValues: {
+            questions: formattedQuestions,
+          },
+        });
+      }
+    };
     const handleDisconnect = async () => {
       setCallStatus(CallStatus.FINISHED);
       vapi.stop();
@@ -86,15 +122,13 @@ const Agent = ({userName, userId, type}: AgentProps) => {
     <>
     <div className='call-view'>
         <div className='card-interviewer'>
-            <div className='avatar' ><Image src="/Connor.webp" alt="connor" width={114} height={65} className='object-cover rounded-full'/>{isSpeaking && <span className='animate-speak'/>}</div>
-            <h3>Connor </h3>
-            <h4>Interview Architect
-
-</h4>
+            <div className='avatar size-[130px]' ><Image src="/Chloe RT600.webp" alt="connor" width={123} height={65} className='object-cover rounded-full'/>{isSpeaking && <span className='animate-speak'/>}</div>
+            <h3>Chloe</h3>
+            <h4>Virtual Interviewer</h4>
         </div>
         <div className='card-border'>
             <div className='card-content'>
-                <Image src="/user-avatar.jpg" width={540} height={540}  className="rounded-full object-cover size-[120px]" alt="user" /> <h3>{userName}</h3>
+                <Image src="/user-avatar.jpg" width={543} height={540}  className="rounded-full object-cover size-[120px]" alt="user" /> <h3>{userName}</h3>
             </div>
         </div>
     </div>
@@ -128,4 +162,4 @@ const Agent = ({userName, userId, type}: AgentProps) => {
   )
 }
 
-export default Agent
+export default GetInterview
