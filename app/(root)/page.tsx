@@ -9,10 +9,16 @@ import Testimonials from '@/components/Testimonials';
 //import {  isAuthenticated } from '@/lib/actions/auth.action'
 import Link from 'next/link'
 //import { redirect } from 'next/navigation'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default  function LandingPage() {
-  
+  const [mounted, setMounted] = useState(false);
+
+useEffect(() => {
+  setMounted(true);
+}, []);
+
+if (!mounted) return null;
   return (
     <>
       <>

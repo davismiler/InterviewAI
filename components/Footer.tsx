@@ -3,8 +3,13 @@ import Link from 'next/link';
 import React from 'react';
 import Github from './Github';
  // Remove if not using react-router
-
+ import { useEffect, useState } from 'react';
 const Footer = () => {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
   return (
     <footer className="relative  text-gray-300  ">
       {/* Curved border effect */}
@@ -33,7 +38,7 @@ const Footer = () => {
           <Link href="mailto:abhishekganvirr@gmail.com" className="hover:underline">Contact Us</Link>
         </div>
         <div>
-          Copyright © {new Date().getFullYear()} | <span className="font-semibold">IntervueAI</span>
+        {year && <>Copyright © {year} | <span className="font-semibold">IntervueAI</span></>}
         </div>
       </div>
     </footer>

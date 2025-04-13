@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  compiler: {
+    styledComponents: true,  // Ensures styled-components work with SSR
   }
 };
 
