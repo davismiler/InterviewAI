@@ -138,7 +138,7 @@ const GetInterview = ({userName, userId, type, interviewId, questions}: GetInter
         </div>
         <div className='card-border'>
             <div className='card-content'>
-                <Image src="/user-avatar.jpg" width={543} height={540}  className="rounded-full object-cover size-[120px]" alt="user" /> <h3>{userName}</h3>
+                <Image src="/user-avatar.png" width={543} height={540}  className="rounded-full object-cover size-[120px]" alt="user" /> <h3>{userName}</h3>
             </div>
         </div>
     </div>

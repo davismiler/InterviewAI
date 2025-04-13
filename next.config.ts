@@ -1,3 +1,4 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -10,7 +11,8 @@ const nextConfig: NextConfig = {
   },
   compiler: {
     styledComponents: true,  // Ensures styled-components work with SSR
-  }
+  },
+  
 };
 
 export default nextConfig;
