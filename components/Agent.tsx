@@ -7,6 +7,7 @@ import { vapi } from '@/lib/vapi.sdk';
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import Loading from './Loading';
 
 enum CallStatus {
     INACTIVE = 'INACTIVE',
@@ -21,6 +22,7 @@ interface SavedMessage {
 }
 const Agent = ({userName, userId, type}: AgentProps) => {
   const router = useRouter();
+  const [isRedirecting, setIsRedirecting] = useState(false)
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE)
   const [messages, setMessages] = useState<SavedMessage[]>([]);
@@ -61,8 +63,12 @@ const Agent = ({userName, userId, type}: AgentProps) => {
   }
     }, [])
     useEffect(() => {
-      if(callStatus === CallStatus.FINISHED) router.push('/dashboard');
-    })
+      if(callStatus === CallStatus.FINISHED) {
+        setIsRedirecting(true); // Trigger loader before navigation
+        router.push('/dashboard');
+      }
+      
+    },[callStatus, router]); // ✅ include dependencies)
     
     const handleCall = async () => {
       setCallStatus(CallStatus.CONNECTING);
@@ -85,6 +91,11 @@ const Agent = ({userName, userId, type}: AgentProps) => {
   return (
     <>
     <div className='call-view'>
+    {isRedirecting && (
+  <div >
+    <Loading />
+  </div>
+)}
         <div className='card-interviewer'>
             <div className='avatar' ><Image src="/Connor.webp" alt="connor" width={114} height={65} className='object-cover rounded-full'/>{isSpeaking && <span className='animate-speak'/>}</div>
             <h3>Connor </h3>

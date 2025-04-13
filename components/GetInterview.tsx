@@ -6,6 +6,7 @@ import { vapi } from '@/lib/vapi.sdk';
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import Loading from './Loading';
 
 enum CallStatus {
     INACTIVE = 'INACTIVE',
@@ -20,6 +21,7 @@ interface SavedMessage {
 }
 const GetInterview = ({userName, userId, type, interviewId, questions}: GetInterviewProps) => {
   const router = useRouter();
+  const [isRedirecting, setIsRedirecting] = useState(false)
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE)
   const [messages, setMessages] = useState<SavedMessage[]>([]);
@@ -67,8 +69,11 @@ const GetInterview = ({userName, userId, type, interviewId, questions}: GetInter
         transcript: messages,
        
       });
+      
+
       if (success && id ) {
         router.push(`/interview/${interviewId}/feedback`)
+        setIsRedirecting(true) // Start loading before route change
       } else {
         console.log('Error saving feedback')
         router.push('/dashboard');
@@ -121,6 +126,11 @@ const GetInterview = ({userName, userId, type, interviewId, questions}: GetInter
   return (
     <>
     <div className='call-view'>
+    {isRedirecting && (
+  <div >
+    <Loading />
+  </div>
+)}
         <div className='card-interviewer'>
             <div className='avatar size-[130px]' ><Image src="/Chloe RT600.webp" alt="connor" width={123} height={65} className='object-cover rounded-full'/>{isSpeaking && <span className='animate-speak'/>}</div>
             <h3>Chloe</h3>

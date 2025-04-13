@@ -1,6 +1,7 @@
 'use server';
 import { auth, db } from "@/firebass/admin";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 const TWO_WEEKS = 60 * 60 * 24 * 14;
 
 export async function signUp(params: SignUpParams){
@@ -89,5 +90,13 @@ export async function isAuthenticated(){
 
     return !!user;
 }
+
+// Sign out user by clearing the session cookie
+export async function signOut() {
+    const cookieStore = await cookies();
+  
+    cookieStore.delete("session");
+    
+  }
 
 

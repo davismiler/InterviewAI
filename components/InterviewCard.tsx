@@ -1,10 +1,10 @@
 import { getRandomInterviewCover } from "@/lib/utils";
 import dayjs from "dayjs";
 import Image from "next/image";
-import { Button } from "./ui/button";
-import Link from "next/link";
+
 import DisplayTechicons from "./DisplayTechicons";
 import { getFeedbackByInterviewId } from "@/lib/actions/generate.action";
+import CheckFeedbackInterviewButton from "./CheckFeedbackInterviewButton";
 
 const InterviewCard =  async ({ id, userId, role, type, techstack, createdAt}: InterviewCardProps) =>  {
   const feedback = userId && id ? await getFeedbackByInterviewId({interviewId : id, userId}) : null;
@@ -42,10 +42,8 @@ const InterviewCard =  async ({ id, userId, role, type, techstack, createdAt}: I
     
     <div className="flex flex-row justify-between">
       <DisplayTechicons techStack={techstack} />
-      <Button className="btn-primary" >
-        <Link href={feedback ? `/interview/${id}/feedback`: `/interview/${id}`}> {feedback ? 'Check Feedback': 'View Interview'}
-        </Link>
-      </Button>
+      <CheckFeedbackInterviewButton hasFeedback={!!feedback} interviewId={id} />
+
       </div>
     </div>
   </div>

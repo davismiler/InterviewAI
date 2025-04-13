@@ -1,78 +1,72 @@
 // app/page.tsx
 "use client"
+import Features from '@/components/Features';
+import Footer from '@/components/Footer';
+import GetStartedbtn from '@/components/GetStartedbtn';
+import HomePlay from '@/components/HomePlay';
+import Testimonials from '@/components/Testimonials';
 //import {  isAuthenticated } from '@/lib/actions/auth.action'
 import Link from 'next/link'
 //import { redirect } from 'next/navigation'
-import React, { useState } from 'react';
+import React from 'react';
 
 export default  function LandingPage() {
-  //const isUserAuthenticated = await isAuthenticated()
-  const [showVideo, setShowVideo] = useState(false)
-  //if (isUserAuthenticated) {
-   // redirect('/dashboard') // 👈 this ensures logged-in users skip landing page
-  //}
-    
-   const toggleVideo = () => {
-      setShowVideo(!showVideo);
-    };
+  
   return (
     <>
       <>
- <div><h1>Welcome to IntervueAI</h1></div> 
-  <div>
-  <Link href="/sign-in">
-    <button className="btn-primary flex items-center gap-2">
-    Get started
-    </button>
-  </Link></div>
-  <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <button
-        onClick={toggleVideo}
-        className="px-6 py-3 text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-colors"
-      >
-        Play Video
-      </button>
-      
-      {showVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Dotted background overlay */}
-          <div 
-            className="absolute inset-0  backdrop-blur-sm"
-            style={{
-              backgroundImage: 'radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px)',
-              backgroundSize: '4px 4px'
-            }}
-            onClick={toggleVideo}
-          ></div>
-          
-          {/* Video container */}
-          <div className="relative z-10 w-full max-w-4xl bg-black rounded-lg overflow-hidden shadow-2xl">
-            {/* Video header with title and close button */}
-          {/*  <div className="flex items-center justify-between p-3 bg-black/90">
-              {<h3 className="text-white text-lg">Interv</h3>}
-              <button 
-                onClick={toggleVideo}
-                className="text-white text-2xl hover:text-gray-300"
-              >
-                ⋮
-              </button>
-            </div>*/}
-            
-            {/* Video player */}
-            <div className="relative pb-[56.25%] h-0">
-              <iframe 
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/bUqBOX0C-U0?autoplay=1&modestbranding=1&rel=0"
-                title="Video Player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      )}
+ <div className='flex justify-center  content-center mt-6 items-center'>
+  <div className='gap-x-1'>
+  <div className='sm:text-5xl text-2xl text-[#CCCEEF] text-center'>Where everyone
+  <div className='sm:text-7xl text-4xl mt-1.5 from-[#DDDFFF] text-transparent bg-clip-text bg-gradient-to-r to-[#8564be] font-bold text-center leading-[1.2]'>
+ suffer together</div>
+ <div className='gap-2 pl-5 pr-5'>
+ <p className='sm:text-2xl text-[16px] text-center mt-3 justify-center items-center'>We know how brutal interviews can be. They don’t have to be.</p>
+<p className='sm:text-2xl text-[16px] text-center justify-center items-center' >Generate personalized mock interviews, watch how others handled theirs, </p>
+<p className='sm:text-2xl text-[16px]  text-center justify-center items-center'> and get feedback that actually helps.
+</p>
+</div>
+ </div>
+ </div>
+ </div> 
+  <div className=' flex justify-center items-center text-center'>
+  <Link href="/sign-up">
+    < GetStartedbtn />
+  </Link>
+  <div className="absolute inset-0 z-0 rounded-xl pointer-events-none glow-border" />
+  </div>
+  
+  <div className='relative z-20 '>
+  < HomePlay />
+  </div>
+
+
+ {/* This wrapper shouldn't limit full-screen sections */}
+<div className="flex flex-col items-center">
+  
+  {/* Normal content (centered) */}
+  <section className="max-w-4xl px-4  text-center mt-[-50]">
+    {/* ...hero text */}
+    <div className=' sm:text-4xl text-2xl mt-7   from-[#466CCF] text-transparent bg-clip-text bg-gradient-to-r to-[#FF3BD4] font-bold text-center leading-[1.2]'>WHY CHOOSE US</div>
+    <div className='text-[#CCCEEF] text-2xl mt-3 sm:text-6xl'>Unleash Your Potential with AI</div>
+    <div className='text-[#7376AA] text-[20px] mt-3'>Take your interview preparation to the next level with features designed for success.</div>
+  </section>
+
+  {/* Full-screen wide section */}
+  <section className="relative w-screen  justify-center  items-center flex  overflow-hidden">
+    <div className="mt-10">
+      <Features />
     </div>
+  </section>
+</div>
+<div className='relative z-10'>
+  <Testimonials />
+</div>
+
+<div className='relative z-10'>
+  <Footer />
+</div>
+
 </>
     </>
   )
