@@ -36,7 +36,7 @@ const StyledWrapper = styled.div`
   button:hover {
     background: transparent;
     color: #A998DA;
-    font-size: 18px;
+    
     box-shadow:0 0 1em .25em var(--glow-color),
             0 0 4em 2em var(--glow-spread-color),
             inset 0 0 .75em .25em var(--glow-color); ;

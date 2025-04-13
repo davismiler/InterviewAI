@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import GetStartedbtn from '@/components/GetStartedbtn';
 import HomePlay from '@/components/HomePlay';
 import Testimonials from '@/components/Testimonials';
+
 //import {  isAuthenticated } from '@/lib/actions/auth.action'
 import Link from 'next/link'
 //import { redirect } from 'next/navigation'
