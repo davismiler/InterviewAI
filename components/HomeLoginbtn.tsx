@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const HomeLoginbtn = () => {
   return (
     <StyledWrapper>
-      <button >
+      <button className='' >
         Sign In
         
       </button>
@@ -21,7 +21,7 @@ const StyledWrapper = styled.div`
     font-size: 17px;
     font-weight: 500;
     color:#DDDFFF ;
-    border: 3px solid #DDDFFF;
+    border: 2px solid #6F75B3;
     border-radius: 8px;
     box-shadow: 0 0 1em .25em var(--glow-color),
             0 0 4em 1em var(--glow-spread-color),

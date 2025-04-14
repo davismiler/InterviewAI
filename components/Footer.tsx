@@ -33,8 +33,8 @@ const Footer = () => {
       {/* Bottom row */}
       <div className="mt-4 px-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-600">
         <div className="flex gap-4 mb-2 md:mb-0">
-        <Link href="https://www.linkedin.com/in/abhishekganvir/" className="hover:underline">GitHub</Link>
-          <Link href="https://github.com/AbhishekGanvir" className="hover:underline">LinkedIn</Link>
+        <Link href="https://www.linkedin.com/in/abhishekganvir/" className="hover:underline">LinkedIn</Link>
+          <Link href="https://github.com/AbhishekGanvir" className="hover:underline">GitHub</Link>
           <Link href="mailto:abhishekganvirr@gmail.com" className="hover:underline">Contact Us</Link>
         </div>
         <div>
