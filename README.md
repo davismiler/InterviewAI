@@ -28,8 +28,6 @@ The **IntervueAI** is a next-gen AI-powered mock interview platform built to hel
 - 📝 **Real-Time Transcription**
   - Get instant AI-generated feedback after each session, including ratings, improvement tips, and evaluation summaries.
 
-- 💬 **Feedback Portal**
-  - Take the interview with AI voice agent, and receive instant feedback based on your conversation.
 
 
 ## 🛠️ Tech Stack
