@@ -26,7 +26,7 @@ if (!mounted) return null;
   <div className='gap-x-1'>
   <div className='sm:text-5xl text-2xl text-[#CCCEEF] text-center'>Where everyone
   <div className='sm:text-7xl text-4xl mt-1.5 from-[#DDDFFF] text-transparent bg-clip-text bg-gradient-to-r to-[#8564be] font-bold text-center leading-[1.2]'>
- suffer together</div>
+ suffers together</div>
  <div className='gap-2 pl-5 pr-5'>
  <p className='sm:text-2xl text-[16px] text-center mt-3 justify-center items-center'>We know how brutal interviews can be. They don’t have to be.</p>
 <p className='sm:text-2xl text-[16px] text-center justify-center items-center' >Generate personalized mock interviews, watch how others handled theirs, </p>
