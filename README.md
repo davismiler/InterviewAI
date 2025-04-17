@@ -31,8 +31,6 @@ The **IntervueAI** is a next-gen AI-powered mock interview platform built to hel
 - 💬 **Feedback Portal**
   - Take the interview with AI voice agent, and receive instant feedback based on your conversation.
 
-- 🌍 **Open-Source**
-  - Fully open-source with scope for community contributions.
 
 ## 🛠️ Tech Stack
 - ⚛ **Next.js**
