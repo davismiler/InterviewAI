@@ -19,7 +19,7 @@ The **IntervueAI** is a next-gen AI-powered mock interview platform built to hel
   - Say goodbye to static input forms just log in, speak, and start your interview. It's natural, voice-first interaction from the start.
 
 - 🤖 **AI-Powered Interview Generation**
-  - Personalized mock interviews based on your resume, job role, and round type using real-time AI prompts.
+  - Personalized mock interviews based on your resume, job role, and round type using Vapi voice assistants and Google Gemini.
 
 
 - 🧠 **Digital AI Interviewers**
