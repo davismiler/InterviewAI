@@ -1,6 +1,7 @@
 
 # 🤖 IntervueAI - Precision in Recruitment 
-![_Green Simple Nature Quotes Desktop Wallpaper](https://github.com/user-attachments/assets/ef0155d3-fd60-4db0-80c1-cebce119e766)
+![intervueai](https://github.com/user-attachments/assets/1e780225-d1d5-426d-be93-f5680b1f98ce)
+
 
 
 ## 🌟 Overview
