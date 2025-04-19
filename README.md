@@ -1,6 +1,7 @@
 
 # 🤖 IntervueAI - Precision in Recruitment 
-![intervueai](https://github.com/user-attachments/assets/1e780225-d1d5-426d-be93-f5680b1f98ce)
+![intervueai](https://github.com/user-attachments/assets/d26c8001-18ba-4777-bcd9-f80c479f3557)
+
 
 
 
