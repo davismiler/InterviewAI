@@ -4,6 +4,7 @@ import React, { ReactNode } from 'react'
 import { isAuthenticated } from '@/lib/actions/auth.action'
 import { redirect } from 'next/navigation';
 import SignOutButton from '@/components/SignOutButton';
+import Card from '@/components/Alert';
 const Rootlayout = async ({children} : {children: ReactNode}) => {
  const isUserAuthenticated = await isAuthenticated();
   if (!isUserAuthenticated) redirect('/');
@@ -16,6 +17,8 @@ const Rootlayout = async ({children} : {children: ReactNode}) => {
         </Link>
         <SignOutButton />
       </nav>
+      {/* Show the notice once per login */}
+      <Card />
       {children}
     </div>
   )
