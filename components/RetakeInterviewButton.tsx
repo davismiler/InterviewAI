@@ -22,7 +22,7 @@ const RetakeInterviewButton = ({ interviewId }: Props) => {
     <Button onClick={handleClick} className="btn-primary flex-1">
       {loading ? <Loading /> : null}
       <p className="text-sm font-semibold text-black text-center">
-        Retake Interview
+        Practice Again
       </p>
     </Button>
   )

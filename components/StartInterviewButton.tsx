@@ -17,7 +17,7 @@ const StartInterviewButton = () => {
   return (
     <Button onClick={handleClick} className="btn-primary w-full sm:w-[30%]">
       {loading ? <Loading /> : ""}
-      <p className="text-black">Start an Interview</p>
+      <p className="text-black">Start New Interview</p>
     </Button>
   )
 }

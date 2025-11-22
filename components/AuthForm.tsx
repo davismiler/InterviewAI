@@ -62,7 +62,7 @@ const AuthForm = ({type}: {type: FormType}) => {
           return;
         }
 
-        toast.success("Account created successfully.")
+        toast.success("Account created successfully! Welcome aboard.")
         router.push('/dashboard')
       } else {
         const {email,password} = values;
@@ -74,7 +74,7 @@ const AuthForm = ({type}: {type: FormType}) => {
           return;
         }
         await signIn({ email, idToken})
-        toast.success("Sign in successfully.");
+        toast.success("Welcome back! You've signed in successfully.");
         router.push('/dashboard')
       }
     } catch(error){
@@ -96,36 +96,36 @@ const AuthForm = ({type}: {type: FormType}) => {
       
       <div className="flex flex-col gap-4 card py-8 px-10">
         <div className="flex flex-row gap-2 justify-center">
-          <Image src="/logo.svg" alt="logo" height={32} width={30} /><h2 className="text-primary-100">IntervueAI</h2>
+          <Image src="/logo.svg" alt="logo" height={32} width={30} /><h2 className="text-primary-100">InterviewAI</h2>
         </div>
-        <div className="flex justify-center text-[100%] sm:text-3xl">Practice Like You Truly Mean It</div>
+        <div className="flex justify-center text-[100%] sm:text-3xl">Elevate Your Interview Preparation</div>
       
       <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-2 form">
        
        {!isSignIn && (<FormField control={form.control}
           name="name"
-          label="Name"
-          placeholder="Your Name"
+          label="Full Name"
+          placeholder="Enter your full name"
         />
       )}
        <FormField 
           control={form.control}
           name="email"
-          label="Email"
-          placeholder="Your email address" 
+          label="Email Address"
+          placeholder="Enter your email address" 
           type="email"
        />
        <FormField 
           control={form.control}
           name="password"
           label="Password"
-          placeholder="Enter your password"
+          placeholder="Create a secure password"
           type="password"
        />
        
         <Button className="btn" type="submit">
-          {isSignIn ? 'Sign In' : 'Sign Up'}
+          {isSignIn ? 'Sign In' : 'Create Account'}
         </Button>
       
         <Button 
@@ -143,7 +143,7 @@ const AuthForm = ({type}: {type: FormType}) => {
               }
               const idToken = await result.user.getIdToken();
               await signIn({ email: result.user.email!, idToken });
-              toast.success("Signed in with Google successfully!");
+              toast.success("Successfully signed in with Google!");
               router.push("/dashboard");
             } catch (err) {
               console.error(err);
@@ -153,16 +153,16 @@ const AuthForm = ({type}: {type: FormType}) => {
           }}
         >
           <Image src="/google-icon.png" width={26} height={28} alt="Google icon" />
-          {isSignIn ? "Continue With Google" : "Continue With Google"}
+          Continue with Google
         </Button>
         
       </form>
     </Form>
     <p className="text-center">
-      {isSignIn ? 'No account yet?': 'Have an account already?'}
+      {isSignIn ? "Don't have an account?": 'Already have an account?'}
 
       <Link href={!isSignIn ? '/sign-in':'/sign-up'} className="font-bold text-user-primary ml-1">
-      {!isSignIn ? "Sign in" : 'Sign up'}</Link>
+      {!isSignIn ? "Sign up" : 'Sign in'}</Link>
     </p>
     </div>
     </div>

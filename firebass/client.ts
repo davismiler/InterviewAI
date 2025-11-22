@@ -12,13 +12,13 @@ import { getFirestore } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDA2BCiIPeAlhmC7XKcPEVl6KtLL_QNtp0",
-  authDomain: "intervueai-7d261.firebaseapp.com",
-  projectId: "intervueai-7d261",
-  storageBucket: "intervueai-7d261.firebasestorage.app",
-  messagingSenderId: "29325578515",
-  appId: "1:29325578515:web:0247e625c5e25b17c0cae6",
-  measurementId: "G-STGDZHYXGF"
+  apiKey: "AIzaSyCzsYjlGJmMunkzNhofQyxBQpzCyZ6L4OU",
+  authDomain: "interviewai-93539.firebaseapp.com",
+  projectId: "interviewai-93539",
+  storageBucket: "interviewai-93539.firebasestorage.app",
+  messagingSenderId: "397837414276",
+  appId: "1:397837414276:web:d3b7870084d128db6e77d1",
+  measurementId: "G-XSZWC1F8JZ"
 };
 
 // Initialize Firebase

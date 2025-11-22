@@ -18,11 +18,11 @@ const Footer = () => {
       {/* Logo and tagline */}
       <div className="relative z-10 flex flex-col items-center text-center">
         <Image src="/logo.svg" alt="Logo" width={35} height={35} className="sm:w-20 w-14 mb-5 " />
-        <Link href="https://github.com/AbhishekGanvir/IntervueAI" >
+        <Link href="https://github.com/davismiler/InterviewAI" >
         < Github />
         </Link>
         <p className="sm:text-3xl mt-4 text-lg text-purple-200 font-medium">
-          Your Gateway to Smarter Interview Preparation!
+          Your Path to Interview Excellence
         </p>
       </div>
 
@@ -34,11 +34,11 @@ const Footer = () => {
       <div className="mt-4 px-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-600">
         <div className="flex gap-4 mb-2 md:mb-0">
         <Link href="https://www.linkedin.com/in/abhishekganvir/" className="hover:underline">LinkedIn</Link>
-          <Link href="https://github.com/AbhishekGanvir" className="hover:underline">GitHub</Link>
+          <Link href="https://github.com/davismiler" className="hover:underline">GitHub</Link>
           <Link href="mailto:abhishekganvirr@gmail.com" className="hover:underline">Contact Us</Link>
         </div>
         <div>
-        {year && <>Copyright © {year} | <span className="font-semibold">IntervueAI</span></>}
+        {year && <>Copyright © {year} | <span className="font-semibold">InterviewAI</span></>}
         </div>
       </div>
     </footer>

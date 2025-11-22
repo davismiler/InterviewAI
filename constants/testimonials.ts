@@ -1,37 +1,37 @@
 export const testimonials = [
   {
     quote:
-      "Using IntervueAI was a game-changer for my job prep. The way abhi built the platform—especially the real-time voice feedback—felt like I was talking to a real interviewer. Super intuitive and helpful!",
+      "This platform transformed my interview preparation. The real-time voice interaction felt incredibly natural, and the detailed feedback helped me identify areas I needed to improve. Highly recommended for anyone serious about acing their interviews.",
     name: "Anjali Mehra",
     title: "Final Year Student, BITS Pilani",
   },
   {
     quote:
-      "I was blown away by IntervueAI’s accuracy in evaluating my speech and giving relevant suggestions. Hats off to abhi for building something so futuristic yet user-friendly.",
+      "The accuracy of the AI evaluation and the quality of feedback exceeded my expectations. The platform provides actionable insights that genuinely help you improve your interview performance.",
     name: "Rohan Deshmukh",
     title: "Software Engineer Intern, Infosys",
   },
   {
     quote:
-      "As someone who struggles with interview anxiety, IntervueAI gave me the confidence to face real interviews. The conversational agent feels human, and abhi’s work behind this is simply brilliant.",
+      "As someone who experiences interview anxiety, this platform gave me the confidence I needed. The conversational AI feels remarkably human, making practice sessions both comfortable and effective.",
     name: "Priya Nair",
     title: "Graduate Trainee, Wipro",
   },
   {
     quote:
-      "Abhi’s IntervueAI is not just a mock interview tool—it's an experience. From voice transcription to feedback, everything felt polished and thoughtful. Really impressive work!",
+      "This is more than just a mock interview tool—it's a comprehensive preparation platform. The voice transcription, personalized questions, and detailed feedback create an exceptional learning experience.",
     name: "Arjun Sethi",
     title: "HR Associate, TCS",
   },
   {
     quote:
-      "What impressed me the most was how natural and intelligent the AI felt. It's clear that abhi understands both tech and the pain points of interviewees. Kudos for solving a real problem!",
+      "The natural conversation flow and intelligent question generation impressed me most. The platform clearly understands the challenges candidates face and provides practical solutions to overcome them.",
     name: "Neha Kapoor",
     title: "Talent Acquisition Manager, Zoho",
   },
   {
     quote:
-      "IntervueAI helped my students gain confidence before placement season. abhi’s dedication to tech with purpose is truly inspiring. Looking forward to seeing what he builds next.",
+      "This platform has been invaluable for my students during placement season. It builds confidence and provides realistic practice that prepares them for actual interviews. A game-changer for career preparation.",
     name: "Dr. Rajeev Rangan",
     title: "Placement Officer, VJTI Mumbai",
   },

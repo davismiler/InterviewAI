@@ -18,7 +18,7 @@ const BackToDashboardButton = () => {
     <Button onClick={handleClick} className="btn-secondary flex-1">
       {loading ? <Loading /> : null}
       <p className="text-sm font-semibold text-primary-200 text-center">
-        Back to dashboard
+        Return to Dashboard
       </p>
     </Button>
   )

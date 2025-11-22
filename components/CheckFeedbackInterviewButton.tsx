@@ -25,7 +25,7 @@ const CheckFeedbackInterviewButton = ({ hasFeedback, interviewId }: Props) => {
   return (
     <Button onClick={handleClick} className="btn-primary">
       {loading ? <Loading /> : ""}
-      <p className="text-black">{hasFeedback ? "Check Feedback" : "View Interview"}</p>
+      <p className="text-black">{hasFeedback ? "View Feedback" : "Start Interview"}</p>
     </Button>
   )
 }

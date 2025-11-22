@@ -72,7 +72,7 @@ const Agent = ({userName, userId, type}: AgentProps) => {
     
     const handleCall = async () => {
       setCallStatus(CallStatus.CONNECTING);
-      await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!,{
+      await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!,{
         variableValues:{
           username: userName,
           userid:userId,
@@ -98,10 +98,8 @@ const Agent = ({userName, userId, type}: AgentProps) => {
 )}
         <div className='card-interviewer'>
             <div className='avatar' ><Image src="/Connor.webp" alt="connor" width={114} height={65} className='object-cover rounded-full'/>{isSpeaking && <span className='animate-speak'/>}</div>
-            <h3>Connor </h3>
-            <h4>Interview Architect
-
-</h4>
+            <h3>Connor</h3>
+            <h4>AI Interview Assistant</h4>
         </div>
         <div className='card-border'>
             <div className='card-content'>
@@ -124,13 +122,13 @@ const Agent = ({userName, userId, type}: AgentProps) => {
     <span className={cn( 'absolute animate-ping rounded-full opacity-75', callStatus !== 'CONNECTING' && 'hidden' )}
        />
       <span>
-      { isCallInactiveOrFinished ? 'Call' : '. . .'}
+      { isCallInactiveOrFinished ? 'Start Interview' : 'Connecting...'}
       </span>
     
   </button>
 ) : (
   <button className='btn-disconnect' onClick={handleDisconnect}>
-    End
+    End Interview
   </button>
 )}
 

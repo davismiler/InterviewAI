@@ -24,7 +24,7 @@ const InterviewCard =  async ({ id, userId, role, type, techstack, createdAt}: I
      
       <Image src={getRandomInterviewCover()} alt='cover' width={90} height={90} className="rounded-full object-fit mt-[-5%] size-[50px]" />
 
-      <h3 className="mt-[-10%] capitalize">{role} Interview</h3>
+      <h3 className="mt-[-10%] capitalize">{role} Position</h3>
 
       <div className="flex flex-row  mt-[-10%]">
 
@@ -38,7 +38,7 @@ const InterviewCard =  async ({ id, userId, role, type, techstack, createdAt}: I
         </div>
         </div> 
       </div>
-      <p className="line-clamp-2 mt-[-10%]">{feedback?.finalAssessment || "You haven't taken interview yet. Take it now to improve your skills." }</p>
+      <p className="line-clamp-2 mt-[-10%]">{feedback?.finalAssessment || "Start this interview to practice your skills and receive personalized feedback on your performance." }</p>
     
     <div className="flex flex-row justify-between">
       <DisplayTechicons techStack={techstack} />

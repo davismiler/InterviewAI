@@ -12,7 +12,7 @@ const Rootlayout = async ({children} : {children: ReactNode}) => {
       <nav className='flex items-center justify-between   shadow'>
         <Link href="/dashboard" className='flex items-center gap-2' >
         <Image src="/logo.svg" alt="Logo" width={38} height={32}/>
-        <h2 className='text-primary-100'>IntervueAI</h2>
+        <h2 className='text-primary-100'>InterviewAI</h2>
         </Link>
         
        <Link href="/sign-in">

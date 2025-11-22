@@ -1,0 +1,25 @@
+[debug] [2025-11-22T17:40:00.574Z] ----------------------------------------------------------------------
+[debug] [2025-11-22T17:40:00.576Z] Command:       C:\nvm4w\nodejs\node.exe C:\nvm4w\nodejs\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2025-11-22T17:40:00.576Z] CLI Version:   14.26.0
+[debug] [2025-11-22T17:40:00.577Z] Platform:      win32
+[debug] [2025-11-22T17:40:00.577Z] Node Version:  v22.19.0
+[debug] [2025-11-22T17:40:00.577Z] Time:          Sat Nov 22 2025 12:40:00 GMT-0500 (Eastern Standard Time)
+[debug] [2025-11-22T17:40:00.577Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-22T17:40:00.579Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  The Firebase CLI’s MCP server feature can optionally make use of Gemini in Firebase. Learn more about Gemini in Firebase and how it uses your data: https://firebase.google.com/docs/gemini-in-firebase#how-gemini-in-firebase-uses-your-data 
+[debug] [2025-11-22T17:40:01.623Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-11-22T17:40:01.623Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-11-22T17:40:49.109Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\deepp\AppData\Local\nvm\v22.19.0\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:519:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1132:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:271:20)
+    at ReadStream.emit (node:events:531:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
