@@ -1,19 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const firaCode = Fira_Code({
-  variable: "--font-fira-code",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "InterviewAI - Master Your Interview Skills with AI",
@@ -28,9 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${firaCode.variable} antialiased`}
+        className="antialiased"
         style={{
           background: "radial-gradient(125% 125% at 50% 10%, #000000 40%, #0d1a36 100%)",
+          fontFamily: "var(--font-inter), 'Inter', sans-serif",
         }}
       >
         <div className="fixed inset-0 z-0" />

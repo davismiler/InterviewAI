@@ -16,9 +16,12 @@ const InterviewCard =  async ({ id, userId, role, type, techstack, createdAt}: I
       
     <div className="card-interview ">
       
-      <div className="absolute  top-0 right-0 w-fit px-4 py-2 rounded-bl-lg bg-light-600">
+      <div className="absolute top-0 right-0 w-fit px-4 py-2 rounded-bl-lg" style={{
+        background: "linear-gradient(135deg, rgba(59, 130, 246, 0.8) 0%, rgba(139, 92, 246, 0.8) 50%, rgba(236, 72, 153, 0.8) 100%)",
+        border: "1px solid rgba(255, 255, 255, 0.2)"
+      }}>
      
-     <p className="badge-text">
+     <p className="badge-text text-white">
       {normalizedType}</p>
       </div>
      

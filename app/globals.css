@@ -323,11 +323,33 @@
   }
 
   .card-border {
-    @apply border-gradient p-0.5 rounded-2xl w-fit;
+    @apply p-0.5 rounded-2xl w-fit relative;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(139, 92, 246, 0.3) 50%, rgba(236, 72, 153, 0.3) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-border::before {
+    content: '';
+    @apply absolute -inset-0.5 rounded-2xl blur opacity-50;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 50%, rgba(236, 72, 153, 0.2) 100%);
+    z-index: -1;
   }
 
   .card {
-    @apply dark-gradient rounded-2xl min-h-full;
+    @apply rounded-2xl min-h-full relative;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 30, 0.95) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .card::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%);
+    z-index: -1;
+  }
+
+  .card:hover::before {
+    @apply opacity-100;
   }
 
   .form {
@@ -366,7 +388,20 @@
     }
 
     .card-interviewer {
-      @apply flex-center flex-col gap-2 p-7 h-[400px] blue-gradient-dark rounded-lg border-2 border-primary-200/50 flex-1 sm:basis-1/2 w-full;
+      @apply flex-center flex-col gap-2 p-7 h-[400px] rounded-lg flex-1 sm:basis-1/2 w-full relative;
+      background: linear-gradient(135deg, rgba(17, 21, 50, 0.95) 0%, rgba(8, 9, 13, 0.95) 100%);
+      border: 2px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .card-interviewer::before {
+      content: '';
+      @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%);
+      z-index: 0;
+    }
+
+    .card-interviewer:hover::before {
+      @apply opacity-100;
     }
 
     .avatar {
@@ -382,7 +417,9 @@
     }
 
     .card-content {
-      @apply flex flex-col gap-2 justify-center items-center p-7 dark-gradient rounded-2xl min-h-full;
+      @apply flex flex-col gap-2 justify-center items-center p-7 rounded-2xl min-h-full relative z-10;
+      background: linear-gradient(135deg, rgba(26, 28, 32, 0.95) 0%, rgba(8, 9, 13, 0.95) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.2);
     }
   }
 
@@ -390,7 +427,9 @@
     @apply border-gradient p-0.5 rounded-2xl w-full;
 
     .transcript {
-      @apply dark-gradient rounded-2xl  min-h-12 px-5 py-3 flex items-center justify-center;
+      @apply rounded-2xl min-h-12 px-5 py-3 flex items-center justify-center;
+      background: linear-gradient(135deg, rgba(26, 28, 32, 0.95) 0%, rgba(8, 9, 13, 0.95) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.2);
 
       p {
         @apply text-lg text-center text-white;
@@ -415,7 +454,20 @@
   }
 
   .card-cta {
-    @apply flex flex-row blue-gradient-dark rounded-3xl px-16 py-6 items-center justify-between max-sm:px-4;
+    @apply flex flex-row rounded-3xl px-16 py-6 items-center justify-between max-sm:px-4 relative;
+    background: linear-gradient(135deg, rgba(17, 21, 50, 0.95) 0%, rgba(8, 9, 13, 0.95) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .card-cta::before {
+    content: '';
+    @apply absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%);
+    z-index: 0;
+  }
+
+  .card-cta:hover::before {
+    @apply opacity-100;
   }
 
   .interviews-section {
@@ -435,20 +487,40 @@
   }
 
   .card-interview {
-    @apply dark-gradient rounded-2xl min-h-full flex flex-col p-6 relative overflow-hidden gap-10 justify-between;
+    @apply rounded-2xl min-h-full flex flex-col p-6 relative overflow-hidden gap-10 justify-between;
+    background: linear-gradient(135deg, rgba(26, 28, 32, 0.95) 0%, rgba(8, 9, 13, 0.95) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
 
     .badge-text {
       @apply text-sm font-semibold capitalize;
     }
   }
+
+  .card-interview::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 50%, rgba(236, 72, 153, 0.05) 100%);
+    z-index: 0;
+  }
+
+  .card-interview:hover::before {
+    @apply opacity-100;
+  }
+
+  .card-interview:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2), 0 0 40px rgba(139, 92, 246, 0.1);
+  }
 }
 
 @utility dark-gradient {
-  @apply bg-gradient-to-b from-[#1A1C20] to-[#08090D];
+  background: linear-gradient(135deg, rgba(26, 28, 32, 0.95) 0%, rgba(8, 9, 13, 0.95) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 @utility border-gradient {
-  @apply bg-gradient-to-b from-[#4B4D4F] to-[#4B4D4F33];
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(139, 92, 246, 0.3) 50%, rgba(236, 72, 153, 0.3) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @utility pattern {
@@ -456,7 +528,8 @@
 }
 
 @utility blue-gradient-dark {
-  @apply bg-gradient-to-b from-[#171532] to-[#08090D];
+  background: linear-gradient(135deg, rgba(17, 21, 50, 0.95) 0%, rgba(8, 9, 13, 0.95) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 @utility blue-gradient {
